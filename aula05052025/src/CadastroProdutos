@@ -1,0 +1,41 @@
+package ordenacao;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class CadastroProdutos {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Produto[] produtos = new Produto[10];
+
+		// Cadastro de produtos
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Digite o código do produto " + (i + 1) + ": ");
+			int codigo = scanner.nextInt();
+			scanner.nextLine();
+			System.out.println("Digite o nome do produto " + (i + 1) + ": ");
+			String nome = scanner.nextLine();
+			System.out.println("Digite o valor do produto " + (i + 1) + ": ");
+			double valor = scanner.nextDouble();
+
+			produtos[i] = new Produto(codigo, nome, valor);
+		}
+
+		// Ordenar por código
+		Arrays.sort(produtos, Comparator.comparingInt(p -> p.codigo));
+		System.out.println("\nProdutos ordenados por código:");
+		for (Produto p : produtos) {
+			System.out.println(p);
+		}
+
+		// Ordenar por valor em ordem crescente
+		Arrays.sort(produtos, Comparator.comparingDouble(p -> p.valor));
+		System.out.println("\nProdutos ordenados por valor crescente:");
+		for (Produto p : produtos) {
+			System.out.println(p);
+		}
+
+		scanner.close();
+	}
+}
