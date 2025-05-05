@@ -1,0 +1,18 @@
+package ordenacao;
+
+class Produto {
+    int codigo;
+    String nome;
+    double valor;
+
+    public Produto(int codigo, String nome, double valor) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + ", Nome: " + nome + ", Valor: R$ " + valor;
+    }
+}
